@@ -14,5 +14,9 @@ router(app);
 
 app.use('/app', express.static('public'));
 
-app.listen(3000);
-console.log('la app esta escuchando en localhosto:3000');
+
+app.set('port',process.env.PORT || 3000);
+
+app.listen(app.get('port')), () =>{
+    console.log(`la app esta escuchando en ${app.get('port')}`);
+}
